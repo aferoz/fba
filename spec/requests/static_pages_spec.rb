@@ -2,6 +2,8 @@ require 'spec_helper'
 
 describe "Static pages" do
 
+let(:base_title) { "Fix Bad Art" }
+
   describe "Home page" do
 
     it "should have the content 'Fix Bad Art'" do
@@ -11,7 +13,7 @@ describe "Static pages" do
 
        it "should have the title 'Fix Bad Art'" do
       visit '/static_pages/home'
-      expect(page).to have_title("Fix Bad Art | Quality Vectorization - FAST")
+      expect(page).to have_title("#{base_title} | Quality Vectorization - FAST")
     end
   end
 
@@ -24,7 +26,7 @@ describe "Static pages" do
 
        it "should have the title 'FAQ'" do
       visit '/static_pages/FAQ'
-      expect(page).to have_title("Fix Bad Art | FAQ")
+      expect(page).to have_title("#{base_title} | FAQ")
     end
   end
 
@@ -37,7 +39,7 @@ describe "Static pages" do
 
        it "should have the title 'Samples'" do
       visit '/static_pages/samples'
-      expect(page).to have_title("Fix Bad Art | Samples")
+      expect(page).to have_title("#{base_title} | Samples")
     end
   end
 
@@ -50,7 +52,7 @@ describe "Static pages" do
 
        it "should have the title 'Testimonials'" do
       visit '/static_pages/testimonials'
-      expect(page).to have_title("Fix Bad Art | Testimonials")
+      expect(page).to have_title("#{base_title} | Testimonials")
     end
   end
 
