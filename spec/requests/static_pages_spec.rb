@@ -2,59 +2,33 @@ require 'spec_helper'
 
 describe "Static pages" do
 
-let(:base_title) { "Fix Bad Art" }
+  subject { page }
 
   describe "Home page" do
+    before { visit root_path }
 
-    it "should have the content 'Fix Bad Art'" do
-      visit '/static_pages/home'
-      expect(page).to have_content('Fix Bad Art')
-    end
-
-       it "should have the title 'Fix Bad Art'" do
-      visit '/static_pages/home'
-      expect(page).to have_title("#{base_title} | Quality Vectorization - FAST")
-    end
-  end
-
-  describe "FAQ page" do
-
-    it "should have the content 'FAQ'" do
-      visit '/static_pages/FAQ'
-      expect(page).to have_content('FAQ')
-    end
-
-       it "should have the title 'FAQ'" do
-      visit '/static_pages/FAQ'
-      expect(page).to have_title("#{base_title} | FAQ")
-    end
+    it { should have_content('Fix Bad Art') }
+    it { should have_title(full_title('Quality Vectorization FAST')) }
   end
 
   describe "Samples page" do
+    before { visit samples_path }
 
-    it "should have the content 'Samples'" do
-      visit '/static_pages/samples'
-      expect(page).to have_content('Samples')
-    end
-
-       it "should have the title 'Samples'" do
-      visit '/static_pages/samples'
-      expect(page).to have_title("#{base_title} | Samples")
-    end
+    it { should have_content('Samples') }
+    it { should have_title(full_title('Samples')) }
   end
 
   describe "Testimonials page" do
+    before { visit testimonials_path }
 
-    it "should have the content 'Testimonials'" do
-      visit '/static_pages/testimonials'
-      expect(page).to have_content('Testimonials')
-    end
-
-       it "should have the title 'Testimonials'" do
-      visit '/static_pages/testimonials'
-      expect(page).to have_title("#{base_title} | Testimonials")
-    end
+    it { should have_content('Testimonials') }
+    it { should have_title(full_title('Testimonials')) }
   end
 
+  describe "Contact page" do
+    before { visit contact_path }
 
+    it { should have_content('Contact Us') }
+    it { should have_title(full_title('Contact Us')) }
+  end
 end

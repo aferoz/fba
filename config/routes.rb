@@ -1,13 +1,16 @@
 Fba::Application.routes.draw do
-  get "static_pages/home"
-  get "static_pages/FAQ"
-  get "static_pages/samples"
-  get "static_pages/testimonials"
+
+  root 'static_pages#home'
+  match '/signup', to: 'users#new', via: 'get'
+  match '/samples', to: 'static_pages#samples', via: 'get'
+  match '/contact', to: 'static_pages#contact', via: 'get'
+  match '/testimonials', to: 'static_pages#testimonials', via: 'get'
+  match '/faq', to: 'static_pages#faq', via: 'get'
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
-  # You can have the root of your site routed with "root"
-  # root 'welcome#index'
+  
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
